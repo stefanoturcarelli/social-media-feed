@@ -88,32 +88,40 @@
 				<div class="posting-input">
 					<textarea name="posting" id="posting" cols="30" rows="10" placeholder="What's on your mind?"></textarea>
 				</div>
-				<div class="input-file">
-					<label for="file" class="file-label">
-						<i class="fas fa-upload"></i> 
-						<input type="file" id="file" name="file" multiple>
-					</label>
+				<div class="posting-box-footer">
+					<div class="input-file">
+						<label for="file" class="file-label">
+							<i class="fas fa-upload"></i>
+							<input type="file" id="file" name="file" multiple>
+						</label>
+					</div>
+					<div class="post-button-container">
+						<input type="button">Post</input>
+					</div>
 				</div>
 			</form>
+
+			<!-- Posts container -->
+			<div class="posts-container">
+
+			</div>
 
 			<!-- Post -->
 			<div class="post">
 				<div class="post-header">
-					<div class="post-header-image">
-						<img src="https://avatars.githubusercontent.com/u/67341828?v=4" alt="Profile Image">
-					</div>
+					<div class="post-header-image"></div>
 					<div class="post-header-text">
-						<h3>Stefano Turcarelli</h3>
-						<p>2h</p>
+						<p class="user">Stefano Turcarelli</p>
+						<p class="date">2h</p>
 					</div>
 					<div class="post-header-options">
 						<a href="#"><i class="fas fa-ellipsis-h"></i></a>
 					</div>
 				</div>
 				<div class="post-body">
-					<p>
+					<p class="post-text">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Quisquam, voluptatum.
+						Quisquam, voluptatum.sadf
 					</p>
 				</div>
 				<div class="post-body-image">

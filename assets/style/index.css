@@ -126,6 +126,8 @@ a {
   --divider: #3a3b3c;
   --wash: #242526;
   --text: #e6e9ed;
+  --highlight: #3498db;
+  --hover: #2980b9;
 }
 
 body {
@@ -246,22 +248,23 @@ input[type="file"] {
   gap: 1rem;
 }
 
+.post-text {
+  font-size: 1.4rem;
+}
+
 .post-header {
   display: flex;
+  justify-content: flex-start;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .post-header-image {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-}
-
-.post-header-image img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
+  background-image: url("https://avatars.githubusercontent.com/u/67341828?v=4");
+  background-size: cover;
 }
 
 .post-header-options {
@@ -285,19 +288,42 @@ input[type="file"] {
   display: none;
 }
 
-.file-label {
+.file-label,
+.post-button-container {
   display: inline-block;
   padding: 1rem 2rem;
   cursor: pointer;
-  background-color: #3498db;
+  background-color: var(--highlight);
   color: #fff;
   border-radius: 5px;
 }
 
-.file-label:hover {
-  background-color: #2980b9;
+.file-label:hover,
+.post-button-container:hover {
+  background-color: var(--hover);
 }
 
 .visible {
   visibility: visible;
+}
+
+.posting-box-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.post-header-text {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.user {
+	font-weight: 700;
+	font-size: 1.6rem;
+}
+.date {
+	font-size: 1.2rem;
 }

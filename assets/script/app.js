@@ -15,6 +15,7 @@ import {
 import User from "./User.js";
 import Subscriber from "./Subscriber.js";
 
+const selectedImageFeedback = select(".selected-image-feedback");
 const modalButton = select(".profile-image");
 const modal = select(".modal");
 const textArea = select("textarea");
@@ -29,11 +30,18 @@ function cleanInput() {
   fileSelected = false;
   file = null;
   fileInput.value = "";
+	selectedImageFeedback.innerHTML = "";
 }
 
 function newImgUploaded(event) {
   fileSelected = true;
   file = event.target.files[0];
+
+  const fileSelectedText = create("p");
+  fileSelectedText.classList.add("file-selected-text");
+  fileSelectedText.textContent = `${file.name}`;
+  selectedImageFeedback.prepend(fileSelectedText);
+
   console.log(`File Selected`);
 }
 
@@ -133,11 +141,14 @@ onEvent("keyup", document, closeModalOnEsc);
 
 // Function to handle keydown event on the text area
 function handleKeyDown(event) {
-  if (event.key === "Enter" && textArea.value.trim().length > 0) {
+  if (
+    (event.key === "Enter" && textArea.value.trim().length > 0) ||
+    fileSelected
+  ) {
     event.preventDefault(); // Prevents the default Enter key behavior (usually adding a new line)
     newPost();
     textArea.focus();
-		cleanInput();
+    cleanInput();
   }
 }
 
@@ -148,7 +159,7 @@ onEvent("click", postButton, () => {
   if (textArea.value.trim().length > 0 || fileSelected) {
     newPost();
     textArea.focus();
-		cleanInput();
+    cleanInput();
   }
 });
 

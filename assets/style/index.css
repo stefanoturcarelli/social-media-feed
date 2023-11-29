@@ -298,32 +298,43 @@ input[type="file"] {
   border-radius: 5px;
 }
 
+
 .file-label:hover,
 .post-button-container:hover {
-  background-color: var(--hover);
+	background-color: var(--hover);
 }
 
 .visible {
-  visibility: visible;
+	visibility: visible;
 }
 
 .posting-box-footer {
-  display: flex;
-  justify-content: space-between;
+	display: flex;
+	justify-content: center;
   align-items: center;
   gap: 1rem;
 }
 
+.post-button-container {
+	margin-left: auto;
+	margin-right: 1rem;
+}
+
 .post-header-text {
 	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .user {
-	font-weight: 700;
-	font-size: 1.6rem;
+  font-weight: 700;
+  font-size: 1.6rem;
 }
 .date {
-	font-size: 1.2rem;
+  font-size: 1.2rem;
+}
+
+.selected-image-feedback {
+  justify-self: flex-start;
+	text-align: left;
 }

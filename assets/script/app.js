@@ -20,6 +20,25 @@ const modal = select(".modal");
 const textArea = select("textarea");
 const postButton = select(".post-button-container");
 const postsContainer = select(".posts-container");
+const fileInput = select("#file");
+let fileSelected = false;
+let file;
+
+function cleanInput() {
+  textArea.value = "";
+  fileSelected = false;
+  file = null;
+  fileInput.value = "";
+}
+
+function newImgUploaded(event) {
+  fileSelected = true;
+  file = event.target.files[0];
+  console.log(`File Selected`);
+}
+
+// Event listener for the file input change
+onEvent("change", fileInput, newImgUploaded);
 
 const subscriberOne = new Subscriber(
   123,
@@ -76,6 +95,17 @@ function newPost() {
   text.textContent = textArea.value;
   post.appendChild(text);
 
+  if (fileSelected) {
+    let imageContainer = create("div");
+    let image = create("img");
+
+    imageContainer.classList.add("post-body-image");
+    image.src = URL.createObjectURL(file);
+
+    post.appendChild(imageContainer);
+    imageContainer.appendChild(image);
+  }
+
   postsContainer.insertBefore(post, postsContainer.firstChild);
 
   textArea.value = "";
@@ -107,6 +137,7 @@ function handleKeyDown(event) {
     event.preventDefault(); // Prevents the default Enter key behavior (usually adding a new line)
     newPost();
     textArea.focus();
+		cleanInput();
   }
 }
 
@@ -114,9 +145,10 @@ function handleKeyDown(event) {
 onEvent("keydown", textArea, handleKeyDown);
 
 onEvent("click", postButton, () => {
-  if (textArea.value.trim().length > 0) {
+  if (textArea.value.trim().length > 0 || fileSelected) {
     newPost();
     textArea.focus();
+		cleanInput();
   }
 });
 

@@ -23,10 +23,10 @@ const postsContainer = select(".posts-container");
 
 const subscriberOne = new Subscriber(
   123,
-  "John",
-  "Doe",
-  "johndoe",
-  "john@email.com",
+  "Stefano",
+  "Turcarelli",
+  "stefTrooper",
+  "stefano@email.com",
   ["Cookers", "Drivers"],
   ["Instructors"],
   false

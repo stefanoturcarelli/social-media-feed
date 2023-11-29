@@ -159,14 +159,15 @@ header {
 }
 
 .desktop-nav {
-	text-align: center;
-	flex: 2;
+  text-align: center;
+  flex: 2;
 }
 
 .profile-image {
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  cursor: pointer;
 }
 
 .profile-image img {
@@ -204,6 +205,10 @@ input[type="file"] {
 
 .container {
   position: relative;
+}
+
+.modal {
+  visibility: hidden;
 }
 
 .modal-content {
@@ -291,4 +296,8 @@ input[type="file"] {
 
 .file-label:hover {
   background-color: #2980b9;
+}
+
+.visible {
+  visibility: visible;
 }

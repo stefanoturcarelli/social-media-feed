@@ -9,4 +9,11 @@ import {
   sleep,
   randomNumber,
   filterArray,
+  create,
 } from "./utils.js";
+
+import User from "./User.js";
+import Subscriber from "./Subscriber.js";
+
+const profileModal = getElement(".profile-image");
+

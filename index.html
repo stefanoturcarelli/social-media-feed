@@ -32,11 +32,99 @@
 </head>
 
 <body>
-	<div class="container">
-		<section>
-			<h2>ImgGram</h2>
-		</section>
-	</div>
+	<header>
+		<div class="container">
+			<div class="flex-container">
+				<div class="app-title">
+					<h1>
+						<a href="#">Slikagram</a>
+					</h1>
+				</div>
+				<div class="desktop-nav">
+					<a href="#">Friends</a>
+					<a href="#">Pages</a>
+					<a href="#">Groups</a>
+					<a href="#">My Ads</a>
+					<a href="#">Settings</a>
+				</div>
+				<div class="mobile-nav">
+					<a href="#"><i class="fas fa-bars"></i></a>
+					<a href="#"><i class="fas fa-search"></i></a>
+					<a href="#"><i class="fas fa-home"></i></a>
+					<a href="#"><i class="fas fa-user-friends"></i></a>
+					<a href="#"><i class="fas fa-users"></i></a>
+					<a href="#"><i class="fas fa-bullhorn"></i></a>
+					<a href="#"><i class="fas fa-cog"></i></a>
+				</div>
+				<div class="profile-image">
+					<img src="https://avatars.githubusercontent.com/u/67341828?v=4" alt="Profile Image">
+				</div>
+			</div>
+
+
+			<!-- Modal -->
+			<div class="modal">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2>Modal</h2>
+					</div>
+					<div class="modal-body">
+						<a href="#">Settings</a>
+					</div>
+					<div class="modal-footer">
+						<a href="#">Log Out</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</header>
+	<main>
+		<div class="container">
+
+			<form class="posting-box">
+				<div class="posting-input">
+					<textarea name="posting" id="posting" cols="30" rows="10" placeholder="What's on your mind?"></textarea>
+				</div>
+				<div class="input-file">
+					<label for="file">
+						<input type="file" id="file" name="file" multiple>
+					</label>
+				</div>
+			</form>
+
+			<!-- Post -->
+			<div class="post">
+				<div class="post-header">
+					<div class="post-header-image">
+						<img src="https://avatars.githubusercontent.com/u/67341828?v=4" alt="Profile Image">
+					</div>
+					<div class="post-header-text">
+						<h3>Stefano Turcarelli</h3>
+						<p>2h</p>
+					</div>
+					<div class="post-header-options">
+						<a href="#"><i class="fas fa-ellipsis-h"></i></a>
+					</div>
+				</div>
+				<div class="post-body">
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+				</div>
+				<div class="post-footer">
+					<div class="post-footer-reactions">
+						<a href="#"><i class="far fa-thumbs-up"></i></a>
+						<a href="#"><i class="far fa-heart"></i></a>
+						<a href="#"><i class="far fa-laugh-squint"></i></a>
+					</div>
+					<div class="post-footer-comments">
+						<a href="#">2 Comments</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</main>
+	<footer></footer>
 </body>
 <noscript>
 	<p>This website needs a JavaScript browser</p>

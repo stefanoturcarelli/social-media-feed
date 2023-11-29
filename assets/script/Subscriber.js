@@ -15,6 +15,8 @@
 // getInfo()
 // The data to populate the pop-up modal comes from the getInfo() method
 
+import User from "./User.js";
+
 class Subscriber extends User {
   #pages = [];
   #groups = [];
@@ -54,3 +56,5 @@ class Subscriber extends User {
     }`;
   }
 }
+
+export default Subscriber;

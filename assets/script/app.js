@@ -142,10 +142,7 @@ onEvent("keyup", document, closeModalOnEsc);
 
 // Function to handle keydown event on the text area
 function handleKeyDown(event) {
-  if (
-    (event.key === "Enter" && textArea.value.trim().length > 0) ||
-    fileSelected
-  ) {
+  if (event.key === "Enter" && textArea.value.trim().length > 0) {
     // Prevents the default Enter key behavior (usually adding a new line)
     event.preventDefault();
     newPost();
@@ -175,26 +172,46 @@ onEvent("load", window, () => {
   textArea.focus();
 });
 
-// Modal content from the Subscriber class
-const modalContentText = create("p");
-modalContentText.classList.add("modal-content-text");
-modalContent.appendChild(modalContentText);
-modalContentText.textContent = `Name: ${subscriberOne
-  .getInfo()
-  .split(", ")
-  .splice(1, 2)
-  .join(", ")} \n
-Username: ${subscriberOne.getInfo().split(", ")[3]} \n
-Email: ${subscriberOne.getInfo().split(", ")[4]} \n
-Pages: ${subscriberOne.getInfo().split(", ")[5]} \n
-Groups: ${subscriberOne.getInfo().split(", ")[6]} \n
-Can Monetize: ${subscriberOne.getInfo().split(", ")[7]}`;
+const getInfoArray = subscriberOne.getInfo().split(", ");
+console.log(getInfoArray);
 
-console.log(
-  `Name: ${subscriberOne.getInfo().split(", ").splice(1, 2).join(", ")}`
-);
-console.log(`Username: ${subscriberOne.getInfo().split(", ")[3]}`);
-console.log(`Email: ${subscriberOne.getInfo().split(", ")[4]}`);
-console.log(`Pages: ${subscriberOne.getInfo().split(", ")[5]}`);
-console.log(`Groups: ${subscriberOne.getInfo().split(", ")[6]}`);
-console.log(`Can Monetize: ${subscriberOne.getInfo().split(", ")[7]}`);
+const fullName = `${subscriberOne.firstName} ${subscriberOne.lastName}`;
+console.log(subscriberOne.lastName);
+console.log(subscriberOne.pages.join(", "));
+const username = subscriberOne.getInfo().split(", ")[3];
+const email = subscriberOne.getInfo().split(", ")[4];
+const pages = subscriberOne.pages.join(", ");
+console.log(pages);
+const groups = subscriberOne.groups.join(", ");
+const canMonetize = subscriberOne.getInfo().split(", ")[7];
+
+// Modal content from the Subscriber class
+const paragraph = create("p");
+paragraph.textContent = `Full name: ${fullName}`;
+modalContent.appendChild(paragraph);
+
+const paragraph2 = create("p");
+paragraph2.textContent = `Username: ${username}`;
+modalContent.appendChild(paragraph2);
+
+const paragraph3 = create("p");
+paragraph3.textContent = `Email: ${email}`;
+modalContent.appendChild(paragraph3);
+
+const paragraph4 = create("p");
+paragraph4.textContent = `Pages: ${pages}`;
+modalContent.appendChild(paragraph4);
+
+const paragraph5 = create("p");
+paragraph5.textContent = `Groups: ${groups}`;
+modalContent.appendChild(paragraph5);
+
+const paragraph6 = create("p");
+
+if (canMonetize === "false") {
+  paragraph6.textContent = `Sorry, you can't monetize your content yet`;
+  modalContent.appendChild(paragraph6);
+} else {
+  paragraph6.textContent = `You can monetize your content`;
+  modalContent.appendChild(paragraph6);
+}

@@ -42,9 +42,9 @@ class User {
   }
 
   getInfo() {
-    return `${this.#firstName} ${this.#lastName} ${this.#username} ${
-      this.#email
-    }`;
+    return `${this.#id}, ${this.#firstName}, ${this.#lastName}, ${
+      this.#username
+    }, ${this.#email}`;
   }
 }
 

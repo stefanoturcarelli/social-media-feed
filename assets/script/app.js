@@ -18,6 +18,7 @@ import Subscriber from "./Subscriber.js";
 const selectedImageFeedback = select(".selected-image-feedback");
 const modalButton = select(".profile-image");
 const modal = select(".modal");
+const modalContent = select(".modal-content");
 const textArea = select("textarea");
 const postButton = select(".post-button-container");
 const postsContainer = select(".posts-container");
@@ -30,7 +31,7 @@ function cleanInput() {
   fileSelected = false;
   file = null;
   fileInput.value = "";
-	selectedImageFeedback.innerHTML = "";
+  selectedImageFeedback.innerHTML = "";
 }
 
 function newImgUploaded(event) {
@@ -145,10 +146,15 @@ function handleKeyDown(event) {
     (event.key === "Enter" && textArea.value.trim().length > 0) ||
     fileSelected
   ) {
-    event.preventDefault(); // Prevents the default Enter key behavior (usually adding a new line)
+    // Prevents the default Enter key behavior (usually adding a new line)
+    event.preventDefault();
     newPost();
     textArea.focus();
     cleanInput();
+  } else if (event.key === "Enter") {
+    // Prevents the default Enter key behavior (usually adding a new line)
+    event.preventDefault();
+    textArea.focus();
   }
 }
 
@@ -160,9 +166,35 @@ onEvent("click", postButton, () => {
     newPost();
     textArea.focus();
     cleanInput();
+  } else {
+    textArea.focus();
   }
 });
 
 onEvent("load", window, () => {
   textArea.focus();
 });
+
+// Modal content from the Subscriber class
+const modalContentText = create("p");
+modalContentText.classList.add("modal-content-text");
+modalContent.appendChild(modalContentText);
+modalContentText.textContent = `Name: ${subscriberOne
+  .getInfo()
+  .split(", ")
+  .splice(1, 2)
+  .join(", ")} \n
+Username: ${subscriberOne.getInfo().split(", ")[3]} \n
+Email: ${subscriberOne.getInfo().split(", ")[4]} \n
+Pages: ${subscriberOne.getInfo().split(", ")[5]} \n
+Groups: ${subscriberOne.getInfo().split(", ")[6]} \n
+Can Monetize: ${subscriberOne.getInfo().split(", ")[7]}`;
+
+console.log(
+  `Name: ${subscriberOne.getInfo().split(", ").splice(1, 2).join(", ")}`
+);
+console.log(`Username: ${subscriberOne.getInfo().split(", ")[3]}`);
+console.log(`Email: ${subscriberOne.getInfo().split(", ")[4]}`);
+console.log(`Pages: ${subscriberOne.getInfo().split(", ")[5]}`);
+console.log(`Groups: ${subscriberOne.getInfo().split(", ")[6]}`);
+console.log(`Can Monetize: ${subscriberOne.getInfo().split(", ")[7]}`);

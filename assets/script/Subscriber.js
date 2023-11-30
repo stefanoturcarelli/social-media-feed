@@ -51,7 +51,7 @@ class Subscriber extends User {
   }
 
   getInfo() {
-    return `${super.getInfo()} ${this.#pages} ${this.#groups} ${
+    return `${super.getInfo()}, ${this.#pages}, ${this.#groups}, ${
       this.#canMonetize
     }`;
   }

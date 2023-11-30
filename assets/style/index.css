@@ -215,7 +215,7 @@ input[type="file"] {
 
 .modal-content {
   position: absolute;
-  width: 15%;
+  width: 30%;
   z-index: 100;
   right: 0;
   top: 7rem;

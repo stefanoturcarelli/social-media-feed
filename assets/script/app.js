@@ -99,6 +99,15 @@ function newPost() {
   date.textContent = new Date().toLocaleDateString("en-CA", options).toString();
   postHeaderText.appendChild(date);
 
+  /*
+  URL: createObjectURL() static method
+  The URL.createObjectURL() static method creates a string containing a 
+  URL representing the object given in the parameter.
+
+  https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL_static
+
+  */
+
   // Create post body
   let text = create("p");
   text.textContent = textArea.value;
